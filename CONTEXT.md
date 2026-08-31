@@ -1,12 +1,20 @@
 # Kamy-Bot domain context
 
-## AI software factory
+## Agentic Development Workflow
 
-An AI software factory receives software requests, coordinates agents through an approved delivery process, validates evidence, and prepares reviewed changes for merge. Humans retain control of product direction, ownership, approved scope, and exceptional failures.
+An Agentic Development Workflow is a software delivery process in which agents perform bounded development actions, produce evidence, and pass work through explicit workflow states. Humans retain control of product direction, ownership, approved scope, and exceptional failures.
+
+## Agentic framework
+
+The implementation framework that Kamy-Bot uses to construct and run its Agentic Development Workflow. Kamy-Bot does not commit to one framework. The framework is an implementation choice behind Kamy-Bot interfaces.
+
+## Agentic software factory
+
+A software system that receives software requests, coordinates agents through an Agentic Development Workflow, validates evidence, and prepares reviewed changes for merge.
 
 ## Kamy-Bot
 
-The provisional name for the reusable AI software factory. Kamy-Bot supports multiple projects and accepts requests from external intake sources.
+The provisional name for the reusable Agentic Development Workflow platform. Kamy-Bot supports multiple Projects and accepts requests from external Intake sources.
 
 ## Kamy Jemput
 
@@ -14,19 +22,19 @@ The existing production-specific orchestrator. Kamy Jemput remains stable while 
 
 ## Project
 
-A software repository and its workflow policy as managed by Kamy-Bot. Each project has its own repository, ownership policy, workflow labels, profile, and external integrations.
+A software repository and its workflow policy as managed by Kamy-Bot. Each Project has its own repository, ownership policy, workflow labels, profile, and external integrations.
 
 ## Project profile
 
-The project-specific description that tells Kamy-Bot which repository, ownership policy, workflow labels, intake sources, and external integrations belong to one Project.
+The Project-specific description that tells Kamy-Bot which repository, ownership policy, workflow labels, Intake sources, and external integrations belong to one Project.
 
 ## Intake source
 
-An external system that submits a Work request to Kamy-Bot. Obsidian daily notes are one Intake source. An Intake source provides the request content and source identity. It does not decide implementation scope.
+An external system that submits a Work request to Kamy-Bot. Obsidian daily notes are one Intake source. An Intake source provides request content and source identity. It does not decide implementation scope.
 
 ## Work request
 
-The user-originated unit of work that enters the factory. A Work request becomes a GitHub issue before implementation work begins. Experiment 001 uses one GitHub issue for one Work request. Later Discovery or Triage may create approved child issues.
+The user-originated unit of work that enters the Agentic Development Workflow. A Work request becomes a GitHub issue before implementation work begins. Experiment 001 uses one GitHub issue for one Work request. Later Discovery or Triage may create approved child issues.
 
 ## GitHub issue
 
@@ -34,7 +42,7 @@ The shared work record that connects a Work request to product decisions, techni
 
 ## Workflow
 
-The ordered set of states and actions that moves a Work request from intake to a reviewed change. The long-term workflow is Intake, Discovery, Triage, approval, agent implementation, review, and merge.
+The ordered set of states and actions that moves a Work request from intake to a reviewed change. The long-term Workflow is Intake, Discovery, Triage, approval, agent implementation, review, and merge.
 
 ## Workflow run
 
@@ -50,7 +58,7 @@ The behavior, repository paths, and acceptance conditions that a Human decision 
 
 ## Worker
 
-An agent session that performs one assigned Workflow action. A Worker executes approved work and reports evidence. A Worker does not decide product direction, ownership, Approved scope, or merge authorization.
+An agent session that performs one assigned Workflow action. A Worker executes Approved scope and reports Evidence. A Worker does not decide product direction, ownership, Approved scope, or merge authorization.
 
 ## Evidence
 
@@ -58,7 +66,7 @@ The observable record that proves a Workflow action occurred and met its conditi
 
 ## Adapter
 
-A project- or provider-specific implementation behind a Kamy-Bot interface. Intake sources, GitHub, SSSF, Herdr, browser verification, and durable state are Adapters. Workflow rules remain in Kamy-Bot.
+A Project- or provider-specific implementation behind a Kamy-Bot interface. Intake sources, GitHub, agent execution, browser verification, and durable state are Adapters. Workflow rules remain in Kamy-Bot.
 
 ## Controller version
 
@@ -68,7 +76,7 @@ One released implementation of the Kamy-Bot controller. A Project can have only 
 
 A read-only analysis process that examines prior Workflow runs and proposes improvements. It cannot change production policy, start production work, or approve its own proposal.
 
-## Full factory flow
+## Full Agentic Development Workflow
 
 ```text
 Intake source
@@ -77,11 +85,11 @@ Intake source
 → Discovery
 → Triage
 → Human approval
-→ Worker implementation through SSSF or ADW
+→ Agent implementation
 → Pull request
 → Integration review
 → Required Human or visual approval
 → Merge
 ```
 
-Experiment 001 designs only the first foundation slice. It does not implement the full factory flow.
+Experiment 001 designs only the first foundation slice. It does not implement the full Agentic Development Workflow.

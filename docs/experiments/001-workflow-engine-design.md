@@ -1,4 +1,4 @@
-# Experiment 001: workflow-engine design
+# Experiment 001: Agentic Development Workflow design
 
 ## Purpose
 
@@ -6,9 +6,11 @@ Compare the Matt Pocock and pstack development workflows before Kamy-Bot impleme
 
 ## Platform context
 
-Kamy-Bot is a new, reusable AI software factory.
+Kamy-Bot is a new, reusable Agentic Development Workflow platform.
 
-The long-term flow is:
+An Agentic Development Workflow is a software delivery process in which agents perform bounded development actions, produce evidence, and pass work through explicit workflow states.
+
+Kamy-Bot is an agentic software factory. Its long-term flow is:
 
 ```text
 Intake source
@@ -17,7 +19,7 @@ Intake source
 → Discovery
 → Triage
 → Human approval
-→ Worker implementation through SSSF or ADW
+→ Agent implementation
 → Pull request
 → Integration review
 → Required Human or visual approval
@@ -25,6 +27,10 @@ Intake source
 ```
 
 Kamy-Bot supports multiple Projects through Project profiles and Adapters. Each Project has its own repository, ownership policy, workflow labels, and external integrations.
+
+Kamy-Bot will define its own Workflow. It is not required to follow an existing software factory implementation or framework.
+
+The Agentic framework is an implementation choice behind Kamy-Bot interfaces. This experiment must not select a framework only because another system uses it.
 
 Workers execute Approved scope. Workers do not decide product direction, ownership, Approved scope, or merge authorization.
 
@@ -46,7 +52,7 @@ Intake source
 → read-only status
 ```
 
-The slice must support later Discovery, Triage, SSSF or ADW implementation, review, and merge phases. It must not design or implement those later phases in detail.
+The slice must support later Discovery, Triage, agent implementation, review, and merge phases. It must not design or implement those later phases in detail.
 
 The design must cover one Project profile, one GitHub repository, one Intake source, duplicate intake, a Controller restart, a Worker that stops between two state transitions, and separation between two Controller versions.
 
@@ -136,7 +142,7 @@ After both runs, record:
 ## Non-goals
 
 - Do not implement production code.
-- Do not choose a production database or transport only because it is familiar.
+- Do not choose an external workflow framework only because it is familiar.
 - Do not change Kamy Jemput.
 - Do not install a second live controller.
 - Do not let either workflow change GitHub issues or launch production workers.
