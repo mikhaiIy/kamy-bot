@@ -10,7 +10,7 @@ Kamy-Bot is a new, reusable Agentic Development Workflow platform.
 
 An Agentic Development Workflow is a software delivery process in which agents perform bounded development actions, produce evidence, and pass work through explicit workflow states.
 
-Kamy-Bot is an agentic software factory. Its long-term flow is:
+Kamy-Bot is an agentic software factory. Its long-term Agentic Development Workflow is:
 
 ```text
 Intake source
@@ -18,11 +18,12 @@ Intake source
 → GitHub issue
 → Discovery
 → Triage
-→ Human approval
+→ Scope approval
 → Agent implementation
 → Pull request
 → Integration review
-→ Required Human or visual approval
+→ Risk check
+→ Delivery approval when required
 → Merge
 ```
 
@@ -35,6 +36,10 @@ The Agentic framework is an implementation choice behind Kamy-Bot interfaces. Th
 Workers execute Approved scope. Workers do not decide product direction, ownership, Approved scope, or merge authorization.
 
 Kamy Jemput is a separate stable orchestrator. This experiment must not change Kamy Jemput.
+
+The Workflow requires Scope approval before implementation. It requires Delivery approval only for high-risk changes. Low-risk changes can merge after all required checks pass.
+
+Kamy-Bot will improve its Workflow policy and Agent capability packs through a separate Learning workflow. The Learning workflow examines prior runs, creates a Learning proposal, tests the proposal, and promotes or rolls back an approved Policy release. It does not redesign the main architecture by default.
 
 ## Question
 
@@ -75,6 +80,24 @@ docs/experiments/pstack/
 ```
 
 Do not let either run read the other run's proposal before scoring.
+
+## Automatic clarification protocol
+
+The coordinator answers agent questions automatically.
+
+- Agents may ask at most five blocking questions.
+- Agents must ask only questions that the context does not answer.
+- The coordinator answers from `CONTEXT.md`, this brief, or a conservative default.
+- The coordinator does not invent a product or safety decision.
+- If a question requires a Human decision, the coordinator records it as unresolved.
+- The coordinator gives the same answer to both runs when the question applies to both.
+- The coordinator records each answer in `docs/experiments/clarifications.md`.
+
+The two runs must use the same clarification record before final scoring. The clarification record has one writer: the coordinator.
+
+## Herdr execution
+
+Run Matt and pstack in separate new Herdr sessions. Each session uses OMP task agents. Neither session may write production code, change GitHub, or launch production workers.
 
 ### Matt run
 

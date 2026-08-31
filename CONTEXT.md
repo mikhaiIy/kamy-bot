@@ -42,7 +42,7 @@ The shared work record that connects a Work request to product decisions, techni
 
 ## Workflow
 
-The ordered set of states and actions that moves a Work request from intake to a reviewed change. The long-term Workflow is Intake, Discovery, Triage, approval, agent implementation, review, and merge.
+The ordered set of states and actions that moves a Work request from intake to a reviewed change. The long-term Workflow is Intake, Discovery, Triage, Scope approval, agent implementation, review, risk check, and merge.
 
 ## Workflow run
 
@@ -51,6 +51,33 @@ One recorded attempt to move one Work request through the Workflow. A run includ
 ## Human decision
 
 An explicit decision that only an authorized human can make. Product direction, ownership, approved scope, exceptional recovery, and merge authorization are Human decisions when the Workflow requires them.
+## Scope approval
+
+The mandatory Human approval after Discovery and Triage. It confirms the Work request, Approved scope, acceptance conditions, and implementation risk before a Worker starts.
+
+## Delivery approval
+
+A second Human approval that the Workflow requires only for high-risk changes. Low-risk changes can merge after all automated and agent checks pass. High-risk changes include changes to authentication, data deletion, security policy, ownership policy, workflow policy, or merge policy.
+
+## Workflow policy
+
+The rules that control Workflow states, actions, approvals, retries, risk levels, and autonomy.
+
+## Agent capability pack
+
+The versioned set of skills, prompts, tools, model settings, and role instructions available to Workers.
+
+## Learning proposal
+
+A versioned proposal to change Workflow policy or an Agent capability pack. A Learning proposal requires review and approval before it can affect a Project.
+
+## Policy release
+
+An approved and tested change to Workflow policy or an Agent capability pack. A Policy release can be replayed, tested on a canary Project, promoted, or rolled back.
+
+## Learning workflow
+
+The process that examines Workflow runs, creates Learning proposals, tests them against prior evidence, and promotes or rolls back approved Policy releases. The Learning workflow does not change the main architecture by default.
 
 ## Approved scope
 
@@ -84,12 +111,15 @@ Intake source
 → GitHub issue
 → Discovery
 → Triage
-→ Human approval
+→ Scope approval
 → Agent implementation
 → Pull request
 → Integration review
-→ Required Human or visual approval
+→ Risk check
+→ Delivery approval when required
 → Merge
 ```
+
+The Workflow requires Scope approval for every implementation. The Workflow requires Delivery approval only for high-risk changes. The Workflow can merge low-risk changes after all required checks pass.
 
 Experiment 001 designs only the first foundation slice. It does not implement the full Agentic Development Workflow.
