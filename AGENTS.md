@@ -16,7 +16,7 @@ Kamy-Bot is a new, reusable workflow platform. It is separate from Kamy Jemput, 
 
 ## Agent skills
 
-Matt Pocock skills are installed in `.agents/skills/`.
+Matt Pocock skills and selected pstack experiment skills are installed in `.agents/skills/`.
 
 ### Issue tracker
 
@@ -26,7 +26,9 @@ GitHub Issues in `mikhaiIy/kamy-bot`. See `docs/agents/issue-tracker.md`.
 
 Single-context repository with root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
 
-Use the repository-local skills for discovery, domain modeling, architecture, specifications, tickets, and TDD.
+Use the repository-local skills for discovery, domain modeling, architecture, specifications, tickets, TDD, and pstack architecture experiments.
+
+OMP is the execution harness. Do not assume Cursor-specific plugin commands, model rules, cloud agents, Graphite, or `gt`.
 
 Use one top-level workflow router per session. Do not install or invoke duplicate skill names without an explicit comparison plan.
 
