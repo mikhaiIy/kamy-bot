@@ -11,6 +11,7 @@ This directory contains the durable documentation for humans and agents.
 5. [`docs/operations/`](operations/) documents setup, commands, and recovery.
 6. [`docs/research/`](research/) contains cited investigations.
 7. [`docs/specs/`](specs/) contains repository-local specifications.
+8. [`docs/experiments/`](experiments/) contains isolated design and workflow comparisons.
 
 ## Documentation rules
 
